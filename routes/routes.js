@@ -11,7 +11,8 @@ const router = Router()
 router.use(express.static(path.join(__dirname, '../', '/static')))
 
 router.get('/', (req, res, next) => {
-    res.sendFile(path.join(__dirname, '../static/html/index.html'));
+    // res.sendFile(path.join(__dirname, '../static/html/index.html'));
+    res.render(path.join(__dirname, '../', '/static/html/index'))
 })
 
 router.get('/waifu', (req, res, next) => {
