@@ -5,24 +5,21 @@ import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const router = Router()
+const routerHome = Router()
 
-router.use(express.static(path.join(__dirname, '../', '/static')))
-router.use(express.urlencoded({ extended: true }))
+routerHome.use(express.static(path.join(__dirname, '../', '/static')))
+routerHome.use(express.urlencoded({ extended: true }))
 
-router.get('/', (req, res, next) => {
+routerHome.get('/', (req, res, next) => {
     // res.sendFile(path.join(__dirname, '../static/html/index.html'));
-    res.render(path.join(__dirname, '../', '/static/html/index'), { waifu: "maiWaifu" })
+    res.render(path.join(__dirname, '../static/html/index'), { waifu: "maiWaifu" })
 })
 
-router.get('/waifu', (req, res, next) => {
+routerHome.get('/waifu', (req, res, next) => {
     res.sendFile(path.join(__dirname, '../static/img/waifu.jpg'))
 })
 
-router.post('/test', (req, res) => {
-    let data = req.body.testform
-    res.render(path.join(__dirname, '../', '/static/html/index'), { waifu: "maiWaifu" })
-})
+
 /* 
 In python, post requests ar handled by view functions using 'if method=post'
 
@@ -42,4 +39,4 @@ app.post('/learned_stuff, (req, res) => {
 })
 */
 
-export default router
+export default routerHome
