@@ -8,15 +8,21 @@
 </head>
 
 <body>
+    <form method="POST" action="/test">
+        <input type="text" name="testform" />
+        <input type="submit" />
+    </form>
+
     <div class="test" id="testdiv">
-        <h1>
-            Home Page
-        </h1>
+        <h1><a href="./">Home Page</a></h1>
+
+
         <div class="waifuname">
             <h2>
                 <%= waifu %>
+            </h2>
         </div>
-        </h2>
+
     </div>
     <img src="img/waifu.jpg">
     <div class="waifuname">
