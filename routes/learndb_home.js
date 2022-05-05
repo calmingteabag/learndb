@@ -1,22 +1,19 @@
-import express from 'express'
-import { Router } from 'express'
 import path from 'path'
-import { fileURLToPath } from 'url'
+import { learnDbHTMLRender } from './learndb_render_html.js'
+import { __dirname, newRouter } from './learndb_path_router.js'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const routerHome = Router()
+const routerHome = newRouter
 
-routerHome.use(express.static(path.join(__dirname, '../', '/static')))
-routerHome.use(express.urlencoded({ extended: true }))
-
-routerHome.get('/', (req, res, next) => {
-    res.render(path.join(__dirname, '../static/html/index'), {
-        technology: '',
-        subject: '',
-        description: '',
-        statusMsg: '',
-    })
+routerHome.get('/', (req, res) => {
+    learnDbHTMLRender(
+        req,
+        res,
+        path.join(__dirname, '../static/html/index'),
+        '',
+        '',
+        '',
+        ''
+    )
 })
 
 export default routerHome

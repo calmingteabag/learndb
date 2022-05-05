@@ -1,17 +1,9 @@
 import path from 'path'
-import { fileURLToPath } from 'url'
-import express from 'express'
-import { Router } from 'express'
 import learndbModel from '../db/db_model.js'
-import { learnDbHTMLRender } from './render_html.js'
+import { learnDbHTMLRender } from './learndb_render_html.js'
+import { __dirname, newRouter } from './learndb_path_router.js'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const routerCreate = Router()
-learndbModel.sync()
-
-routerCreate.use(express.static(path.join(__dirname, '../', '/static')))
-routerCreate.use(express.urlencoded({ extended: true }))
+const routerCreate = newRouter
 
 routerCreate.post('/db_create_entry', (req, res) => {
     (async () => {

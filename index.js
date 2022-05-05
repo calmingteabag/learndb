@@ -9,7 +9,7 @@ const port = 8000
 app.set('view engine', 'ejs')
 app.use(routerHome)
 app.use(routerCreate)
-app.use(routerView)
+app.use(routerSearch)
 
 app.listen(port, () => {
     console.log(`App running on port: ${port}`)

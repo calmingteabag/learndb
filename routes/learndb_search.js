@@ -1,15 +1,8 @@
 import path from 'path'
-import { fileURLToPath } from 'url'
-import express from 'express'
-import { Router } from 'express'
 import learndbModel from '../db/db_model.js'
+import { __dirname, newRouter } from './learndb_path_router.js'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const routerSearch = Router()
-
-routerSearch.use(express.static(path.join(__dirname, '../', '/static')))
-routerSearch.use(express.urlencoded({ extended: true }))
+const routerSearch = newRouter
 
 routerSearch.get('/db_view', (req, res, next) => {
     (async () => {
@@ -28,8 +21,6 @@ routerSearch.get('/db_view', (req, res, next) => {
             statusMsg: ''
         })
     })()
-
-
 })
 
 export default routerSearch
