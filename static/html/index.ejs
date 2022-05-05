@@ -8,24 +8,41 @@
 </head>
 
 <body>
-    <form method="POST" action="/test">
-        <input type="text" name="waifu_name" />
-        <input type="text" name="waifu_height" />
-        <input type="submit" />
+    <form method="POST" action="/db_create_entry">
+        <input type="text" name="db_technology" placeholder="Tech name" />
+        <input type="text" name="db_subject" placeholder="Subject of said tech" />
+        <input type="text" name="db_tags" placeholder="Write some tags, e.g 'django, forms,'" />
+        <input type="text" name="db_description" placeholder="Explain it" />
+        <input type="submit" name="SEND IT" />
     </form>
 
     <div class="test" id="testdiv">
-        <h1><a href="./">Home Page</a></h1>
-
-
-        <div class="waifuname">
-            <h2>
-                <%= waifu %>
-            </h2>
-        </div>
-
+        <h1><a href="./">Home</a></h1>
     </div>
-    <img src="img/waifu.jpg">
+    <div class="tech">
+        <h2>
+            <%= technology %>
+        </h2>
+    </div>
+    <div class="subject">
+        <h2>
+            <%= subject %>
+        </h2>
+    </div>
+    <div class="description">
+        <h2>
+            <%= description %>
+        </h2>
+    </div>
+    <div class="statusmsg">
+        <h2>
+            <%= statusMsg %>
+        </h2>
+    </div>
+    <div class="test2" id="testdiv">
+        <h1><a href="./db_view">View Entries</a></h1>
+    </div>
+
 </body>
 
 </html>

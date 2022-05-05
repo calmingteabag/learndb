@@ -1,16 +1,21 @@
 import { DataTypes } from 'sequelize'
 import sequelize from './db_conn.js'
 
-const waifuModel = sequelize.define('Waifu', {
-    name: {
+const learndbModel = sequelize.define('learning_concepts', {
+    technology: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    height: {
-        type: DataTypes.INTEGER
+    subject: {
+        type: DataTypes.STRING,
+        defaultValue: "Assunto Indefinido"
+    },
+    tags: {
+        type: DataTypes.STRING,
+    },
+    description: {
+        type: DataTypes.TEXT,
     }
 })
 
-const leardbModel = sequelize.define
-
-export default waifuModel
+export default learndbModel
