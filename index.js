@@ -1,7 +1,6 @@
-import routerHome from './routes/home.js'
-import routerCreate from './routes/post_create.js'
-import routerView from './routes/post_view.js'
-import routeGet from './routes/get.js'
+import routerHome from './routes/learndb_home.js'
+import routerCreate from './routes/learndb_entry_create.js'
+import routerSearch from './routes/learndb_search.js'
 import express from 'express'
 
 const app = express()
@@ -11,7 +10,6 @@ app.set('view engine', 'ejs')
 app.use(routerHome)
 app.use(routerCreate)
 app.use(routerView)
-app.use(routeGet)
 
 app.listen(port, () => {
     console.log(`App running on port: ${port}`)
