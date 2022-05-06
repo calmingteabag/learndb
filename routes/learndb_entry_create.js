@@ -18,10 +18,7 @@ routerCreate.post('/db_create_entry', (req, res) => {
             learnDbHTMLRender(
                 req,
                 res,
-                path.join(__dirname, '../static/html/index'),
-                dbTech,
-                dbSubject,
-                dbTags,
+                path.join(__dirname, '../static/html/search'),
                 "Please fill Tech and Subject fields"
             )
         } else {
@@ -42,20 +39,14 @@ routerCreate.post('/db_create_entry', (req, res) => {
                 learnDbHTMLRender(
                     req,
                     res,
-                    path.join(__dirname, '../static/html/index'),
-                    dbTech,
-                    dbSubject,
-                    dbTags,
+                    path.join(__dirname, '../static/html/search'),
                     `Created entry with following data: ${dbTech}, ${dbSubject}. Tags added: ${dbTags} `
                 )
             } else {
                 learnDbHTMLRender(
                     req,
                     res,
-                    path.join(__dirname, '../static/html/index'),
-                    dbTech,
-                    dbSubject,
-                    dbTags,
+                    path.join(__dirname, '../static/html/search'),
                     `Entry ${dbTech} and ${dbSubject} subject already exists`
                 )
             }

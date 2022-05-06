@@ -11,14 +11,12 @@
 <body>
     <div class="learndb_program">
         <div class="learndb_program_head">
-            <h1>I need help with...</h1>
+            <h1>Results for your search: <%= status %>
+            </h1>
         </div>
         <div class="learndb_program_content">
-            <div class="learndb_search">
-                <form method="POST" action="/db_search">
-                    <input type="text" name="search_result" placeholder="Search something..." />
-                    <input type="submit" name="SEND IT" />
-                </form>
+            <div class="learndb_results">
+                all results goes here
             </div>
 
             <div class="learndb_return_home" id="testdiv">
@@ -30,9 +28,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 </body>
 

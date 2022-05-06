@@ -9,3 +9,13 @@ body {
     justify-content: center;
     color: white;
 }
+
+div.leandb_program {
+    display: flex;
+    flex-direction: column
+}
+
+div.leandb_program_content {
+    display: flex;
+    flex-direction: column
+}

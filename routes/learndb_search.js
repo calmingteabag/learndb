@@ -6,7 +6,7 @@ import { __dirname, newRouter } from './learndb_path_router.js'
 const routerSearch = newRouter
 learndbModel.sync()
 
-routerSearch.get('/db_view_all', (req, res, next) => {
+routerSearch.get('/db_view_all', (req, res) => {
     (async () => {
         const learndbFindAll = await learndbModel.findAll()
 
@@ -15,42 +15,24 @@ routerSearch.get('/db_view_all', (req, res, next) => {
             learndbEntries.push(elem.technology)
         }
 
-        learnDbHTMLRender(
-            req,
-            res,
-            path.join(__dirname, '../static/html/index'),
-            '',
-            '',
-            '',
-            learndbEntries
-        )
+        learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/results'), learndbEntries)
     })()
 })
 
-routerSearch.get('/db_view_query', (req, res, next) => {
+routerSearch.post('/db_search', (req, res) => {
     (async () => {
+        const userSearch = req.body.search_result
         const learndbFindAll = await learndbModel.findAll()
         /* 
-        find(All) needs (obviously) to be switched for another
-        query method.
-
-        It should search through 'tags' columns and return results
+        Post.findAll({
+            where: {
+                your_column_name: { 
+                    [Op.or]: [12, 13] //search operators 
+                }
+            }
+        });
         */
-
-        let learndbEntries = []
-        for (let elem of learndbFindAll) {
-            learndbEntries.push(elem.technology)
-        }
-
-        learnDbHTMLRender(
-            req,
-            res,
-            path.join(__dirname, '../static/html/index'),
-            '',
-            '',
-            '',
-            learndbEntries
-        )
+        learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/results'), userSearch)
     })()
 })
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/learndb.css">
+    <title>Learn Db</title>
+</head>
+
+<body>
+    <div class="learndb_insert">
+        <form method="POST" action="/db_create_entry">
+            <input type="text" name="db_technology" placeholder="Tech name" />
+            <input type="text" name="db_subject" placeholder="Subject of said tech" />
+            <input type="text" name="db_tags" placeholder="Write some tags, e.g 'django, forms,'" />
+            <input type="text" name="db_description" placeholder="Explain it" />
+            <input type="submit" name="SEND IT" />
+        </form>
+    </div>
+    <div class="lerndb_check_inserted">
+        <span>
+            <%= status %>
+        </span>
+    </div>
+
+    <div class="learndb_return_home" id="testdiv">
+        <h2><a href="./">Home</a></h2>
+    </div>
+
+    <div class="lerndb_view_all" id="testdiv">
+        <h2><a href="./db_view_all">View All Entries</a></h2>
+    </div>
+
+</body>
+
+</html>
