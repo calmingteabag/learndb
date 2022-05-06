@@ -4,6 +4,7 @@ import { learnDbHTMLRender } from './learndb_render_html.js'
 import { __dirname, newRouter } from './learndb_path_router.js'
 
 const routerCreate = newRouter
+learndbModel.sync()
 
 routerCreate.post('/db_create_entry', (req, res) => {
     (async () => {
