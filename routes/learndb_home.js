@@ -5,7 +5,14 @@ import { __dirname, newRouter } from './learndb_path_router.js'
 const routerHome = newRouter
 
 routerHome.get('/', (req, res) => {
-    learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/index'), '')
+    (async () => {
+        try {
+            await learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/index'), '')
+
+        } catch (err) {
+            console.log(err)
+        }
+    })()
 })
 
 export default routerHome
