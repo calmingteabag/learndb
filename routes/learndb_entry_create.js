@@ -6,6 +6,12 @@ import { __dirname, newRouter } from './learndb_path_router.js'
 const routerCreate = newRouter
 learndbModel.sync()
 
+routerCreate.get('/db_create_entry', (req, res) => {
+    (async () => {
+        learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/create'), '')
+    })()
+})
+
 routerCreate.post('/db_create_entry', (req, res) => {
     (async () => {
 
@@ -18,7 +24,7 @@ routerCreate.post('/db_create_entry', (req, res) => {
             learnDbHTMLRender(
                 req,
                 res,
-                path.join(__dirname, '../static/html/search'),
+                path.join(__dirname, '../static/html/create'),
                 "Please fill Tech and Subject fields"
             )
         } else {
@@ -39,14 +45,14 @@ routerCreate.post('/db_create_entry', (req, res) => {
                 learnDbHTMLRender(
                     req,
                     res,
-                    path.join(__dirname, '../static/html/search'),
+                    path.join(__dirname, '../static/html/create'),
                     `Created entry with following data: ${dbTech}, ${dbSubject}. Tags added: ${dbTags} `
                 )
             } else {
                 learnDbHTMLRender(
                     req,
                     res,
-                    path.join(__dirname, '../static/html/search'),
+                    path.join(__dirname, '../static/html/create'),
                     `Entry ${dbTech} and ${dbSubject} subject already exists`
                 )
             }

@@ -13,13 +13,22 @@
         <div class="learndb_program_head">
             <h1>I need help with...</h1>
         </div>
+
         <div class="learndb_program_content">
-            <div class="learndb_search">
-                <form method="POST" action="/db_search">
-                    <input type="text" name="search_result" placeholder="Search something..." />
-                    <button type="submit">Submita-se</button>
-                    <!-- <input type="submit" name="SEND IT" /> -->
+            <div class="learndb_insert">
+                <form method="POST" action="/db_create_entry">
+                    <input type="text" name="db_technology" placeholder="Tech name" />
+                    <input type="text" name="db_subject" placeholder="Subject of said tech" />
+                    <input type="text" name="db_tags" placeholder="Write some tags, e.g 'django, forms,'" />
+                    <input type="text" name="db_description" placeholder="Explain it" />
+                    <input type="submit" name="SEND IT" />
                 </form>
+            </div>
+
+            <div class="lerndb_check_inserted">
+                <span>
+                    <%= status %>
+                </span>
             </div>
 
             <div class="learndb_return_home" id="testdiv">
@@ -34,11 +43,6 @@
                 <a href="./db_create_entry">Create entry</a>
             </div>
         </div>
-    </div>
-
-
-
-
 </body>
 
 </html>
