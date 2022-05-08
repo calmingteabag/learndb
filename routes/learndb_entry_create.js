@@ -34,7 +34,7 @@ routerCreate.post('/db_create_entry', (req, res) => {
                         subject: dbSubject
                     },
                     defaults: {
-                        techonology: dbTech,
+                        technology: dbTech,
                         subject: dbSubject,
                         tags: dbTags,
                         description: dbDescription

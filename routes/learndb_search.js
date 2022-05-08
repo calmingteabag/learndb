@@ -3,8 +3,10 @@ import learndbModel from '../db/db_model.js'
 import { learnDbHTMLRender } from './learndb_render_html.js'
 import { __dirname, newRouter } from './learndb_path_router.js'
 import { Op } from 'sequelize'
+import { dbAddress } from '../db/db_conn.js'
 
 const routerSearch = newRouter
+
 learndbModel.sync()
 
 routerSearch.get('/db_view_all', (req, res) => {

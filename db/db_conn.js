@@ -1,8 +1,11 @@
 import { Sequelize } from 'sequelize'
 
-const sequelize = new Sequelize('postgres://postgres:admin@localhost:5432/learndb', {
-    dialect: 'postgres'
-    // logging: false
+const dbDialect = 'postgres'
+const dbDatabaseName = 'learndb'
+const dbAddress = `${dbDialect}://postgres:admin@localhost:5432/${dbDatabaseName}`
+const sequelize = new Sequelize(dbAddress, {
+    dialect: `${dbDialect}`,
+    logging: false
 })
 
-export default sequelize
+export { sequelize, dbAddress, dbDialect, dbDatabaseName }

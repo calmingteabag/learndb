@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize'
-import sequelize from './db_conn.js'
+import { sequelize } from './db_conn.js'
 
 const learndbModel = sequelize.define('learning_concepts', {
     technology: {
@@ -18,4 +18,4 @@ const learndbModel = sequelize.define('learning_concepts', {
     }
 })
 
-export default learndbModel
+export { learndbModel }
