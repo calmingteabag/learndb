@@ -4,40 +4,46 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/css/learndb.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
     <title>Learn Db</title>
 </head>
 
 <body>
-    <div class="learndb_program">
-        <div class="learndb_program_head">
-            <h1>I need help with...</h1>
+    <div class="app">
+        <div class="app head">
+
         </div>
-        <div class="learndb_program_content">
-            <div class="learndb_search">
-                <form method="POST" action="/db_search">
-                    <input type="text" name="search_items" placeholder="Search something..." />
-                    <button type="submit">Submita-se</button>
-                </form>
+        <div class="app content">
+
+            <div class="app content top"></div>
+            <div class="app content middle">
+                <div class="app content middle title"> I forgot how to... </div>
+                <div class="app content middle search">
+                    <form method="POST" action="/db_search" id="search_form">
+                        <input type="text" name="search_items" placeholder="Search something..." id="search_input" />
+                        <button type="submit" id="search_button">Submit
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="app content bottom"></div>
+
+        </div>
+        <div class="app footer">
+            <div class="app footer item">
+                <a href="./" class="footer_link">Home</a>
             </div>
 
-            <div class="learndb_return_home" id="testdiv">
-                <a href="./">Home</a>
+            <div class="app footer item">
+                <a href="./db_view_all" class="footer_link">View all entries</a>
             </div>
 
-            <div class="learndb_view_all" id="testdiv">
-                <a href="./db_view_all">View All Entries</a>
-            </div>
-
-            <div class="learndb_create" id="testdiv">
-                <a href="./db_create_entry">Create entry</a>
+            <div class="app footer item">
+                <a href="./db_create_entry" class="footer_link">Create entry</a>
             </div>
         </div>
     </div>
-
-
-
-
 </body>
 
 </html>

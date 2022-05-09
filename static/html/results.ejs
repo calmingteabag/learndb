@@ -4,35 +4,82 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/css/learndb.css">
+    <link rel="stylesheet" type="text/css" href="../css/results.css">
     <title>Learn Db</title>
 </head>
 
 <body>
-    <div class="learndb_program">
-        <div class="learndb_program_head">
-            <h1>Results for your search: <%= status %>
-            </h1>
+    <div class="app">
+        <div class="app head">
+
         </div>
-        <div class="learndb_program_content">
-            <div class="learndb_results">
-                all results goes here
+        <div class="app content">
+
+            <div class="app content top">
+                Search Results
+            </div>
+            <div class="app content middle">
+
+
+
+                <div class="app_search_results">
+                    <% for(let result of dbResults) { %>
+                        <div class="app_search_results_elements">
+                            <div class="app_search_results_elements_top">
+                                <div class="app_search_tech">
+                                    <div class="app_search_tech_title">Tech</div>
+                                    <div class="app_search_tech_value">
+                                        <span>
+                                            <%= result.technology %>
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div class="app_search_subject">
+                                    <div class="app_search_subject_title">Subject</div>
+                                    <div class="app_search_subject_value">
+                                        <span>
+                                            <%= result.subject %>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="app_search_results_elements_bottom">
+                                <div class="app_search_subject_description">
+                                    <span>
+                                        <%= result.description %>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <% } %>
+                </div>
+
+
+
+
+            </div>
+            <div class="app content bottom"></div>
+
+        </div>
+        <div class="app footer">
+            <div class="app footer item">
+                <a href="./" class="footer_link">Home</a>
             </div>
 
-            <div class="learndb_return_home" id="testdiv">
-                <a href="./">Home</a>
+            <div class="app footer item">
+                <a href="./db_view_all" class="footer_link">View all entries</a>
             </div>
 
-            <div class="lerndb_view_all" id="testdiv">
-                <a href="./db_view_all">View All Entries</a>
-            </div>
-
-            <div class="learndb_create" id="testdiv">
-                <a href="./db_create_entry">Create entry</a>
+            <div class="app footer item">
+                <a href="./db_create_entry" class="footer_link">Create entry</a>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

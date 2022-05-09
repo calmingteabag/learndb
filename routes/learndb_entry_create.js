@@ -1,5 +1,5 @@
 import path from 'path'
-import learndbModel from '../db/db_model.js'
+import { learndbModel } from '../db/db_model.js'
 import { learnDbHTMLRender } from './learndb_render_html.js'
 import { __dirname, newRouter } from './learndb_path_router.js'
 
@@ -8,7 +8,7 @@ learndbModel.sync()
 
 routerCreate.get('/db_create_entry', (req, res) => {
     (async () => {
-        await learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/create'), '')
+        await learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/create'), "")
     })()
 })
 
@@ -46,7 +46,7 @@ routerCreate.post('/db_create_entry', (req, res) => {
                         req,
                         res,
                         path.join(__dirname, '../static/html/create'),
-                        `Created entry with following data: ${dbTech}, ${dbSubject}. Tags added: ${dbTags} `
+                        `Created entry with following data: ${dbTech}, ${dbSubject}. Tags added: ${dbTags}. Description as follows: ${dbDescription} `
                     )
                 } else {
                     await learnDbHTMLRender(

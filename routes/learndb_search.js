@@ -1,9 +1,7 @@
 import path from 'path'
-import learndbModel from '../db/db_model.js'
-import { learnDbHTMLRender } from './learndb_render_html.js'
+import { learndbModel } from '../db/db_model.js'
 import { __dirname, newRouter } from './learndb_path_router.js'
 import { Op } from 'sequelize'
-import { dbAddress } from '../db/db_conn.js'
 
 const routerSearch = newRouter
 
@@ -14,12 +12,7 @@ routerSearch.get('/db_view_all', (req, res) => {
         (async () => {
             const learndbFindAll = await learndbModel.findAll()
 
-            let learndbEntries = []
-            for (let elem of learndbFindAll) {
-                learndbEntries.push(elem.technology)
-            }
-
-            await learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/results'), learndbEntries)
+            res.render(path.join(__dirname, '../static/html/results'), { dbResults: JSON.parse(JSON.stringify(learndbFindAll)), status: "Tudo" })
         })()
     } catch (err) {
         console.log(err)
@@ -40,8 +33,16 @@ routerSearch.post('/db_search', (req, res) => {
                 }
             })
 
-            await learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/results'), userSearchResult)
-            // should be changed to learnDbHTMLRenderResult instead
+            // for (let elem of userSearchResult) {
+            //     console.log(elem.technology)
+            //     console.log(elem.subject)
+            //     console.log(elem.description)
+            //     console.log("=========================")
+            // }
+
+            let parserer = JSON.parse(JSON.stringify(userSearchResult))
+            console.log(parserer)
+            res.render(path.join(__dirname, '../static/html/results'), { dbResults: JSON.parse(JSON.stringify(userSearchResult)), status: userSearch })
 
         } catch (err) {
             console.log(err)
