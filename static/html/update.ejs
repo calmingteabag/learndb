@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/update.css">
+    <title>Learn Db</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="app_head">
+        </div>
+        <div class="app_content">
+            <div class="app_content_top">
+                Update Entry
+
+            </div>
+            <div class="app_content_middle">
+                <div class="app_insert">
+
+                    <form method="POST" action="/db_update_entry" class="insert_form" id="insertform">
+                        <div class="app_insert_top">
+                            <input class="insert_elements" type="text" name="db_technology" placeholder="Tech name"
+                                value=<%=dbUpdateEntries.tech%> />
+
+                            <input class="insert_elements" type="text" name="db_subject" placeholder="Subject"
+                                value=<%=dbUpdateEntries.subject%> />
+
+                            <input class="insert_elements" type="text" name="db_tags"
+                                placeholder="Write some tags, e.g 'django, forms,'" value=<%=dbUpdateEntries.tags%> />
+
+                        </div>
+                        <div class="app_insert_middle">
+                            <textarea form="insertform" class="app_insert_description" name="db_description"
+                                placeholder="Explain it" value=><%=dbUpdateEntries.description%></textarea>
+                        </div>
+                        <div class="app_insert_bottom">
+                            <button class="subbutton" type=" submit" name="SEND IT">Update</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="app_content_bottom">
+                <%= dbUpdateEntries.status %>
+            </div>
+        </div>
+        <div class="app_footer">
+            <div class="app_footer_item">
+                <a href="./" class="footer_link">Home</a>
+            </div>
+
+            <div class="app_footer_item">
+                <a href="./db_view_all" class="footer_link">View all entries</a>
+            </div>
+
+            <div class="app_footer_item">
+                <a href="./db_create_entry" class="footer_link">Create entry</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

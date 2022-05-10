@@ -170,16 +170,19 @@ div.app_search_results_elements_top_tech {
 }
 
 div.app_search_results_elements_top_subject {
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
 }
 
 div.app_search_results_elements_top_remove {
-    width: 5%;
+    width: 10%;
     display: flex;
     height: 100%;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    gap: 0.4vh;
 }
 
 div.app_search_results_elements_top_tech_title {
@@ -229,6 +232,14 @@ div.app_search_subject_description {
     padding: 1vw;
 }
 
+#delete_button {
+    border-radius: 0px;
+    border: 1px solid rgb(0, 130, 177);
+    color: rgb(141, 211, 222);
+    background-color: transparent;
+    width: 100%;
+}
+
 @media only screen and (max-width: 1100px) {
     div.app {
         width: 85%;
@@ -238,7 +249,7 @@ div.app_search_subject_description {
         height: 5%;
     }
 
-    div.app_search_results_elements_top {
+    top_remove div.app_search_results_elements_top {
         padding-bottom: 1vh;
     }
 
@@ -255,6 +266,31 @@ div.app_search_subject_description {
     }
 
     div.app_search_subject_value {
+        font-size: 2vh;
+    }
+
+    #delete_button {
+        font-size: 1.5vh;
+    }
+
+    div.app_search_results_elements_top_tech {
+        width: 40%
+    }
+
+    div.app_search_results_elements_top_subject {
+        width: 40%
+    }
+
+    div.app_search_results_elements_top_remove {
+        width: 20%
+    }
+
+    div.app_search_results_elements_top_remove {
+        gap: 1vh;
+    }
+
+    div.app_footer_item {
+        width: 30vw;
         font-size: 2vh;
     }
 }
