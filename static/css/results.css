@@ -38,8 +38,10 @@ div.app_content {
     align-items: left;
     flex-direction: column;
     justify-content: center;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     gap: 1vw;
+    padding: 1vw;
 }
 
 div.app_footer {
@@ -97,8 +99,8 @@ div.app_content_top_title {
 div.app_content_top_functions {
     display: flex;
     flex-direction: row;
-    align-items: left;
-    justify-content: center;
+    align-items: right;
+    justify-content: right;
     height: 30%;
     font-size: 2vh;
 }
@@ -110,7 +112,6 @@ div.app_content_middle {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: auto;
     padding: 1vh;
 
 }
@@ -118,6 +119,11 @@ div.app_content_middle {
 div.app_content_bottom {
     height: 0%;
     width: 100%;
+}
+
+input.checkbox {
+    width: 2vh;
+    height: 2vh;
 }
 
 /* 
@@ -173,7 +179,7 @@ div.app_search_results_elements_top_remove {
     width: 5%;
     display: flex;
     height: 100%;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 div.app_search_results_elements_top_tech_title {
@@ -217,16 +223,15 @@ div.app_search_results_elements_top_subject_value {
 
 div.app_search_subject_description {
     color: rgb(141, 211, 222);
-    overflow: scroll;
+    overflow-y: auto;
     overflow-wrap: break-word;
-    word-wrap: break-word;
     font-size: 2vh;
     padding: 1vw;
 }
 
 @media only screen and (max-width: 1100px) {
     div.app {
-        width: 90%;
+        width: 85%;
     }
 
     div.app_head {

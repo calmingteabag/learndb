@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/results.css">
+    <script src="../js_front/delete_form_handler.js" type="module"></script>
     <title>Learn Db</title>
 </head>
 
@@ -16,7 +17,9 @@
             <div class="app_content_top">
                 <div class="app_content_top_title">Search Results: <%= status %>
                 </div>
-                <div class="app_content_top_functions">Control functions goes here</div>
+                <div class="app_content_top_functions">
+
+                </div>
             </div>
             <div class="app_content_middle">
                 <div class="app_search_results">
@@ -40,9 +43,13 @@
                                     </div>
                                 </div>
                                 <div class="app_search_results_elements_top_remove">
+                                    <input id="checkbox_value" class="checkbox" type="checkbox" value=<%=result.id%>
+                                    form="delete_all"
+                                    name="checkboxinput">
+
                                     <form method="POST" action="/db_delete_entry" id="delete_entry">
                                         <button type="submit" id="delete_button" value=<%=result.id%> name="db_delete">
-                                            Del
+                                            Delete
                                         </button>
                                     </form>
                                 </div>
