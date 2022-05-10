@@ -12,7 +12,8 @@ routerSearch.get('/db_view_all', (req, res) => {
         (async () => {
             const learndbFindAll = await learndbModel.findAll()
 
-            res.render(path.join(__dirname, '../static/html/results'), { dbResults: JSON.parse(JSON.stringify(learndbFindAll)), status: "Tudo" })
+            res.render(path.join(__dirname, '../static/html/results'), { dbResults: JSON.parse(JSON.stringify(learndbFindAll)), status: "All" })
+            console.log(JSON.parse(JSON.stringify(learndbFindAll)))
         })()
     } catch (err) {
         console.log(err)
@@ -32,13 +33,6 @@ routerSearch.post('/db_search', (req, res) => {
                     }
                 }
             })
-
-            // for (let elem of userSearchResult) {
-            //     console.log(elem.technology)
-            //     console.log(elem.subject)
-            //     console.log(elem.description)
-            //     console.log("=========================")
-            // }
 
             let parserer = JSON.parse(JSON.stringify(userSearchResult))
             console.log(parserer)

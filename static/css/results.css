@@ -25,28 +25,29 @@ div.app {
 Main app division
 */
 
-div.app.head {
+div.app_head {
     height: 10%;
     width: 100%;
     display: flex;
 }
 
-div.app.content {
+div.app_content {
     height: 80%;
     width: 100%;
     display: flex;
     align-items: left;
     flex-direction: column;
     justify-content: center;
-    gap: 1vh;
+    overflow: auto;
+    gap: 1vw;
 }
 
-div.app.footer {
+div.app_footer {
     height: 10%;
     width: 100%;
+    gap: 1vw;
     display: flex;
     flex-direction: row;
-    gap: 1vw;
     align-items: center;
     justify-content: center;
 }
@@ -54,12 +55,16 @@ div.app.footer {
 /* 
 Footer styling
 */
-div.app.footer.item {
+div.app_footer_item {
     width: 15vw;
     height: 5vw;
     font-size: 2vh;
     font-family: Arial, Helvetica, sans-serif;
     color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 a.footer_link {
@@ -70,14 +75,35 @@ a.footer_link {
 Content Styling
 */
 
-div.app.content.top {
+div.app_content_top {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 5vh;
     height: 10%;
-    width: 100%
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-div.app.content.middle {
+div.app_content_top_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    font-size: 3vh;
+}
+
+div.app_content_top_functions {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: center;
+    height: 30%;
+    font-size: 2vh;
+}
+
+div.app_content_middle {
     height: 90%;
     width: 100%;
     display: flex;
@@ -85,10 +111,11 @@ div.app.content.middle {
     align-items: center;
     justify-content: center;
     overflow: auto;
+    padding: 1vh;
 
 }
 
-div.app.content.bottom {
+div.app_content_bottom {
     height: 0%;
     width: 100%;
 }
@@ -98,105 +125,131 @@ Result styling
 */
 
 div.app_search_results {
-    height: 100%;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 2vw;
-    /* overflow: auto; */
 }
 
 div.app_search_results_elements {
-    height: 100%;
+    height: 90vh;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1vw;
 }
 
 div.app_search_results_elements_top {
-    height: 5vw;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: left;
-    gap: 1vw;
+    border-bottom: 1px solid rgb(0, 130, 177);
 }
 
 div.app_search_results_elements_bottom {
-    height: auto;
+    height: 60%;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1vw;
 }
 
-div.app_search_tech {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 3vh;
-    width: 20%;
-    height: 100%;
+div.app_search_results_elements_top_tech {
+    width: 45%;
     display: flex;
     flex-direction: column;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
-
 }
 
-div.app_search_subject {
-    font-family: Arial, Helvetica, sans-serif;
-
-    width: 80%;
-    height: 100%;
+div.app_search_results_elements_top_subject {
+    width: 50%;
     display: flex;
     flex-direction: column;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
 }
 
-div.app_search_tech_title {
+div.app_search_results_elements_top_remove {
+    width: 5%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+div.app_search_results_elements_top_tech_title {
+    color: rgba(0, 151, 151, 0.986);
     display: flex;
     align-items: center;
     justify-content: left;
-    font-size: 2vh;
+    font-weight: 900;
+    font-size: 1.5vh;
     padding-left: 1vh;
-    height: 20%;
 }
 
-div.app_search_tech_value {
+div.app_search_results_elements_top_tech_value {
+    color: rgba(213, 213, 213, 0.986);
+    padding-left: 0.2vh;
+    font-size: 2.5vh;
     padding-left: 1vh;
-    font-size: 3vh;
     display: flex;
     align-items: center;
     justify-content: left;
-    height: 80%;
 }
 
-div.app_search_subject_title {
-    padding-left: 1vh;
-    font-size: 2vh;
-    height: 20%;
-}
-
-div.app_search_subject_value {
-    padding-left: 1vh;
-    font-size: 3vh;
+div.app_search_results_elements_top_subject_title {
+    color: rgba(0, 151, 151, 0.986);
     display: flex;
     align-items: center;
     justify-content: left;
-    height: 80%;
+    padding-left: 1vh;
+    font-weight: 900;
+    font-size: 1.5vh;
+}
+
+div.app_search_results_elements_top_subject_value {
+    color: rgba(213, 213, 213, 0.986);
+    padding-left: 1vh;
+    font-size: 2.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
 
 div.app_search_subject_description {
+    color: rgb(141, 211, 222);
+    overflow: scroll;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     font-size: 2vh;
     padding: 1vw;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: left;
+}
+
+@media only screen and (max-width: 1100px) {
+    div.app {
+        width: 90%;
+    }
+
+    div.app_head {
+        height: 5%;
+    }
+
+    div.app_search_results_elements_top {
+        padding-bottom: 1vh;
+    }
+
+    div.app_search_tech_title {
+        font-size: 1.7vh;
+    }
+
+    div.app_search_tech_value {
+        font-size: 2vh;
+    }
+
+    div.app_search_subject_title {
+        font-size: 1.7vh;
+    }
+
+    div.app_search_subject_value {
+        font-size: 2vh;
+    }
 }

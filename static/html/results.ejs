@@ -10,72 +10,64 @@
 
 <body>
     <div class="app">
-        <div class="app head">
-
+        <div class="app_head">
         </div>
-        <div class="app content">
-
-            <div class="app content top">
-                Search Results
+        <div class="app_content">
+            <div class="app_content_top">
+                <div class="app_content_top_title">Search Results: <%= status %>
+                </div>
+                <div class="app_content_top_functions">Control functions goes here</div>
             </div>
-            <div class="app content middle">
-
-
-
+            <div class="app_content_middle">
                 <div class="app_search_results">
                     <% for(let result of dbResults) { %>
                         <div class="app_search_results_elements">
                             <div class="app_search_results_elements_top">
-                                <div class="app_search_tech">
-                                    <div class="app_search_tech_title">Tech</div>
-                                    <div class="app_search_tech_value">
+                                <div class="app_search_results_elements_top_tech">
+                                    <div class="app_search_results_elements_top_tech_title">Tech</div>
+                                    <div class="app_search_results_elements_top_tech_value">
                                         <span>
                                             <%= result.technology %>
                                         </span>
                                     </div>
-
                                 </div>
-                                <div class="app_search_subject">
-                                    <div class="app_search_subject_title">Subject</div>
-                                    <div class="app_search_subject_value">
+                                <div class="app_search_results_elements_top_subject">
+                                    <div class="app_search_results_elements_top_subject_title">Subject</div>
+                                    <div class="app_search_results_elements_top_subject_value">
                                         <span>
                                             <%= result.subject %>
                                         </span>
                                     </div>
-
                                 </div>
-
+                                <div class="app_search_results_elements_top_remove">
+                                    <form method="POST" action="/db_delete_entry" id="delete_entry">
+                                        <button type="submit" id="delete_button" value=<%=result.id%> name="db_delete">
+                                            Del
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                             <div class="app_search_results_elements_bottom">
                                 <div class="app_search_subject_description">
-                                    <span>
-                                        <%= result.description %>
-                                    </span>
+                                    <%= result.description %>
                                 </div>
-
                             </div>
                         </div>
-
                         <% } %>
                 </div>
-
-
-
-
             </div>
-            <div class="app content bottom"></div>
-
+            <div class="app_content_bottom"></div>
         </div>
-        <div class="app footer">
-            <div class="app footer item">
+        <div class="app_footer">
+            <div class="app_footer_item">
                 <a href="./" class="footer_link">Home</a>
             </div>
 
-            <div class="app footer item">
+            <div class="app_footer_item">
                 <a href="./db_view_all" class="footer_link">View all entries</a>
             </div>
 
-            <div class="app footer item">
+            <div class="app_footer_item">
                 <a href="./db_create_entry" class="footer_link">Create entry</a>
             </div>
         </div>
