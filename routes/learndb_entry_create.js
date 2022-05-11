@@ -1,15 +1,16 @@
 import path from 'path'
 import { learndbModel } from '../db/db_model.js'
-import { learnDbHTMLRender } from './learndb_render_html.js'
 import { __dirname, newRouter } from './learndb_path_router.js'
 
 const routerCreate = newRouter
 learndbModel.sync()
 
 routerCreate.get('/db_create_entry', (req, res) => {
-    (async () => {
-        await learnDbHTMLRender(req, res, path.join(__dirname, '../static/html/create'), "")
-    })()
+    try {
+        res.render(path.join(__dirname, '../static/html/create'), { status: "" })
+    } catch (err) {
+        console.log(err)
+    }
 })
 
 routerCreate.post('/db_create_entry', (req, res) => {
@@ -21,14 +22,11 @@ routerCreate.post('/db_create_entry', (req, res) => {
             let dbDescription = req.body.db_description
 
             if (dbTech == '' || dbSubject == '') {
-                await learnDbHTMLRender(
-                    req,
-                    res,
-                    path.join(__dirname, '../static/html/create'),
-                    "Please fill Tech and Subject fields"
-                )
+                res.render(path.join(__dirname, '../static/html/create'), {
+                    status: "Please fill Tech and Subject fields"
+                })
             } else {
-                const [waifuEntry, created] = await learndbModel.findOrCreate({
+                const [newEntry, created] = await learndbModel.findOrCreate({
                     where: {
                         technology: dbTech,
                         subject: dbSubject
@@ -42,19 +40,13 @@ routerCreate.post('/db_create_entry', (req, res) => {
                 })
 
                 if (created) {
-                    await learnDbHTMLRender(
-                        req,
-                        res,
-                        path.join(__dirname, '../static/html/create'),
-                        `Created entry with following data: ${dbTech}, ${dbSubject}. Tags added: ${dbTags}. Description as follows: ${dbDescription} `
-                    )
+                    res.render(path.join(__dirname, '../static/html/create'), {
+                        status: `Created entry with following data: ${dbTech}, ${dbSubject}. Tags added: ${dbTags}. Description as follows: ${dbDescription}`
+                    })
                 } else {
-                    await learnDbHTMLRender(
-                        req,
-                        res,
-                        path.join(__dirname, '../static/html/create'),
-                        `Entry ${dbTech} and ${dbSubject} subject already exists`
-                    )
+                    res.render(path.join(__dirname, '../static/html/create'), {
+                        status: `Entry ${dbTech} and ${dbSubject} subject already exists`
+                    })
                 }
             }
         } catch (err) {

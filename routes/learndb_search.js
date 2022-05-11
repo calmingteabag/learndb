@@ -11,14 +11,11 @@ routerSearch.get('/db_view_all', (req, res) => {
     try {
         (async () => {
             const learndbFindAll = await learndbModel.findAll()
-
             res.render(path.join(__dirname, '../static/html/results'), { dbResults: JSON.parse(JSON.stringify(learndbFindAll)), status: "All" })
-            console.log(JSON.parse(JSON.stringify(learndbFindAll)))
         })()
     } catch (err) {
         console.log(err)
     }
-
 })
 
 routerSearch.post('/db_search', (req, res) => {
@@ -34,8 +31,6 @@ routerSearch.post('/db_search', (req, res) => {
                 }
             })
 
-            let parserer = JSON.parse(JSON.stringify(userSearchResult))
-            console.log(parserer)
             res.render(path.join(__dirname, '../static/html/results'), { dbResults: JSON.parse(JSON.stringify(userSearchResult)), status: userSearch })
 
         } catch (err) {

@@ -1,6 +1,5 @@
 import path from 'path'
 import { learndbModel } from '../db/db_model.js'
-import { learnDbHTMLRender } from './learndb_render_html.js'
 import { __dirname, newRouter } from './learndb_path_router.js'
 
 const routerUpdate = newRouter
@@ -38,8 +37,6 @@ routerUpdate.post('/db_update_entry', (req, res) => {
             let dbTags = req.body.db_tags
             let dbDescription = req.body.db_description
 
-            console.log(dbTech, dbSubject, dbTags, dbDescription)
-
             const dbToUpdateEntry = await learndbModel.findOne({
                 where: {
                     technology: dbTech,
@@ -54,17 +51,11 @@ routerUpdate.post('/db_update_entry', (req, res) => {
 
             dbToUpdateEntry.save()
 
-            await learnDbHTMLRender(
-                req,
-                res,
-                path.join(__dirname, '../static/html/index'),
-                "Entry Updated"
-            )
+            res.render(path.join(__dirname, '../static/html/index'), { status: "Entry Updated" })
 
         } catch (err) {
             console.log(err)
         }
-
     })()
 })
 
