@@ -4,18 +4,25 @@
   "description": "App to keep records of learned stuff",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "devStart": "nodemon index.js"
   },
   "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "ejs": "^3.1.7",
     "express": "^4.18.1",
+    "express-flash": "^0.0.2",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
     "pg": "^8.7.3",
     "sequelize": "^6.19.0"
   },
   "devDependencies": {
-    "jest": "^28.1.0"
+    "dotenv": "^16.0.1",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16"
   }
 }

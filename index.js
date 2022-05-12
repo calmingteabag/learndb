@@ -3,6 +3,7 @@ import routerCreate from './routes/learndb_entry_create.js'
 import routerSearch from './routes/learndb_search.js'
 import routerDelete from './routes/learndb_delete.js'
 import routerUpdate from './routes/learndb_update.js'
+import routerRegister from './routes/learndb_register.js'
 import express from 'express'
 
 import path from 'path'
@@ -20,11 +21,13 @@ const app = express()
 const port = 8000
 
 app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended: false }))
 app.use(routerHome)
 app.use(routerCreate)
 app.use(routerSearch)
 app.use(routerDelete)
 app.use(routerUpdate)
+app.use(routerRegister)
 
 app.listen(port, () => {
     console.log(`App running on port: ${port}`)
