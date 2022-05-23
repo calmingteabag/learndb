@@ -1,7 +1,7 @@
 {
   "name": "learndb",
   "version": "1.0.0",
-  "description": "App to keep records of learned stuff",
+  "description": "App to keep records of learned stuff!",
   "main": "index.js",
   "scripts": {
     "test": "jest",
