@@ -5,7 +5,14 @@ import { __dirname, newRouter } from './learndb_path_router.js'
 const routerUpdate = newRouter
 learndbModel.sync()
 
-routerUpdate.post('/db_update_entry_fill', (req, res) => {
+const authCheck = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+    res.render(path.join(__dirname, '../static/html/login'), { status: "you didn't have permission to access '/access' page so we redirect you here" })
+}
+
+routerUpdate.post('/db_update_entry_fill', authCheck, (req, res) => {
     (async () => {
         try {
             let dbEntryId = req.body.db_update_id
@@ -29,7 +36,7 @@ routerUpdate.post('/db_update_entry_fill', (req, res) => {
     })()
 })
 
-routerUpdate.post('/db_update_entry', (req, res) => {
+routerUpdate.post('/db_update_entry', authCheck, (req, res) => {
     (async () => {
         try {
             let dbTech = req.body.db_technology

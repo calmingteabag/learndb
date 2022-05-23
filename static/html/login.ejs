@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/create.css">
+    <title>Learn Db</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="app_head">
+        </div>
+        <div class="app_content">
+            <div class="app_content_top">
+                Login
+
+            </div>
+            <div class="app_content_middle">
+                <div class="app_insert">
+
+                    <form method="POST" action="/login" class="insert_form" id="insertform">
+                        <div class="app_insert_top">
+                            <input class="insert_elements" type="email" name="email" placeholder="email" />
+                            <input class="insert_elements" type="password" name="password" placeholder="password" />
+                        </div>
+
+                        <div class="app_insert_bottom">
+                            <button class="subbutton" type=" submit" name="SEND IT">Create Account</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="app_content_bottom">
+                <%= status %>
+            </div>
+        </div>
+        <div class="app_footer">
+            <div class="app_footer_item">
+                <a href="./" class="footer_link">Home</a>
+            </div>
+
+            <div class="app_footer_item">
+                <a href="./db_view_all" class="footer_link">View all entries</a>
+            </div>
+
+            <div class="app_footer_item">
+                <a href="./db_create_entry" class="footer_link">Create entry</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

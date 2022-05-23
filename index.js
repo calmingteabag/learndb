@@ -4,11 +4,15 @@ import routerSearch from './routes/learndb_search.js'
 import routerDelete from './routes/learndb_delete.js'
 import routerUpdate from './routes/learndb_update.js'
 import routerRegister from './routes/learndb_register.js'
+import routerLogin from './routes/learndb_login.js'
 import express from 'express'
-
 import path from 'path'
 import { Router } from 'express'
 import { fileURLToPath } from 'url'
+
+const session = require('express-session')
+const passport = require('./auth/passport.js')
+const flash = require('connect-flash')
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -22,12 +26,24 @@ const port = 8000
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
+
+app.use(flash())
+app.use(session({
+    secret: '123',
+    resave: false,
+    saveUninitialized: false,
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use(routerHome)
 app.use(routerCreate)
 app.use(routerSearch)
 app.use(routerDelete)
 app.use(routerUpdate)
 app.use(routerRegister)
+app.use(routerLogin)
+
 
 app.listen(port, () => {
     console.log(`App running on port: ${port}`)

@@ -5,16 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "devStart": "nodemon index.js"
+    "server": "nodemon index.js"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-flash": "^0.1.1",
     "ejs": "^3.1.7",
     "express": "^4.18.1",
     "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "pg": "^8.7.3",
