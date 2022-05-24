@@ -15,6 +15,11 @@ const __dirname = path.dirname(__filename)
 import.meta.url retorna o caminho completo de onde ele ta sendo chamado. Ai vc só
 corta a parte que vc quer com o path.dirname.
 
+IMPORTANTE
+
+se o projeto estiver usando require, não é necessario usar import.meta.url e simular o __dirname
+o __dirname já é embutido como padrão no node sem precisar disso
+
 ## Ainda sobre paths
 
 Só lembrando: '../' sobe um diretorio, './' procura no mesmo diretorio
@@ -56,3 +61,8 @@ const port = process.env.PORT || 8000
 
 Mude o caminho local para usar 'process.env.DATABASE_URL'
 
+## imports
+
+Node não aceita es6 e require ao mesmo tempo
+tenha em mente que se um modulo precisar de require, o projeto inteiro tem que ser
+mudado para require
