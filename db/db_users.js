@@ -2,7 +2,7 @@
 // import { sequelize } from './db_conn.js'
 
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('./db_conn.js')
+const sequelize = require('./db_conn.js')
 
 const userModel = sequelize.define('registered users', {
     username: {
