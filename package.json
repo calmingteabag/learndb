@@ -16,6 +16,7 @@
     "express-flash": "^0.0.2",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
+    "pg": "^8.7.3",
     "sequelize": "^6.19.0"
   },
   "devDependencies": {
