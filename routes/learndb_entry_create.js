@@ -4,7 +4,6 @@
 
 const path = require('path')
 const learndbModel = require('../db/db_model.js')
-const __dirname = require('./learndb_path_router.js')
 const newRouter = require('./learndb_path_router.js')
 
 const routerCreate = newRouter
