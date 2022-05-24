@@ -8,6 +8,11 @@ const routerRegister = newRouter
 const userModel = require('../db/db_users.js')
 userModel.sync()
 
+routerRegister.get('/db_register', (req, res) => {
+    res.render(path.join(__dirname, '../static/html/register'),
+        { status: `` })
+})
+
 routerRegister.post('/db_register', async (req, res) => {
     const [createdUser] = await userModel.findOrCreate({
         where: {
