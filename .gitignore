@@ -4,3 +4,4 @@
 testrender.ejs
 /static/js_front
 .env
+/tests

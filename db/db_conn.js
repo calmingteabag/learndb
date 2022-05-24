@@ -1,4 +1,5 @@
-import { Sequelize } from 'sequelize'
+// import { Sequelize } from 'sequelize'
+const { Sequelize } = require('sequelize')
 
 const dbDialect = 'postgres'
 const dbAddress = process.env.DATABASE_URL
@@ -22,5 +23,5 @@ const sequelize = new Sequelize(dbAddress, {
 //         }
 //     }
 // });
-
-export { sequelize }
+module.exports = sequelize
+// export { sequelize }

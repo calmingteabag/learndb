@@ -1,24 +1,22 @@
 // import { DataTypes } from 'sequelize'
 // import { sequelize } from './db_conn.js'
+
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('./db_conn.js')
 
-const learndbModel = sequelize.define('learning_concepts', {
-    technology: {
+const userModel = sequelize.define('registered users', {
+    username: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    subject: {
+    email: {
         type: DataTypes.STRING,
-        defaultValue: "Assunto Indefinido"
+        allowNull: false
     },
-    tags: {
+    password: {
         type: DataTypes.STRING,
-    },
-    description: {
-        type: DataTypes.TEXT,
+        allowNull: false
     }
 })
 
-module.exports = learndbModel
-// export { learndbModel }
+module.exports = userModel

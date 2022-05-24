@@ -8,5 +8,5 @@ Coisas que aprendi com esse projeto:
 
 - O modelo de renderização segue muito o padrão django, de renderizar os htmls. É bem simples mas o modelo que se usa mais, pelo pouco que conheço, é servir uma html no backend, com um front pegando as informações do back e modificando o html conforme o usuario navega. Ainda desconheço os frameworks de front (react, angular), então a parte prática ainda é uma caixa preta, mas em um futuro proximo pretendo aprender um deles.
 
-
+- Imports estão uma bagunça porque algumas partes do passport precisam usar 'require' e não aceitam 'import {x} from y'
 

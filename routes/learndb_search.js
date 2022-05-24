@@ -1,7 +1,13 @@
-import path from 'path'
-import { learndbModel } from '../db/db_model.js'
-import { __dirname, newRouter } from './learndb_path_router.js'
-import { Op } from 'sequelize'
+// import path from 'path'
+// import { learndbModel } from '../db/db_model.js'
+// import { __dirname, newRouter } from './learndb_path_router.js'
+// import { Op } from 'sequelize'
+
+const path = require('path')
+const learndbModel = require('../db/db_model.js')
+const __dirname = require('./learndb_path_router.js')
+const newRouter = require('./learndb_path_router.js')
+const Op = require('sequelize')
 
 const routerSearch = newRouter
 
@@ -38,5 +44,5 @@ routerSearch.post('/db_search', (req, res) => {
         }
     })()
 })
-
-export default routerSearch
+module.exports = routerSearch
+// export default routerSearch

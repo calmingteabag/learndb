@@ -1,11 +1,23 @@
-import path from 'path'
-import { learndbModel } from '../db/db_model.js'
-import { __dirname, newRouter } from './learndb_path_router.js'
+// import path from 'path'
+// import { learndbModel } from '../db/db_model.js'
+// import { __dirname, newRouter } from './learndb_path_router.js'
+
+const path = require('path')
+const learndbModel = require('../db/db_model.js')
+const __dirname = require('./learndb_path_router.js')
+const newRouter = require('./learndb_path_router.js')
 
 const routerCreate = newRouter
 learndbModel.sync()
 
-routerCreate.get('/db_create_entry', (req, res) => {
+const authCheck = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+    res.render(path.join(__dirname, '../static/html/login'), { status: "you didn't have permission to access '/access' page so we redirect you here" })
+}
+
+routerCreate.get('/db_create_entry', authCheck, (req, res) => {
     try {
         res.render(path.join(__dirname, '../static/html/create'), { status: "" })
     } catch (err) {
@@ -13,7 +25,7 @@ routerCreate.get('/db_create_entry', (req, res) => {
     }
 })
 
-routerCreate.post('/db_create_entry', (req, res) => {
+routerCreate.post('/db_create_entry', authCheck, (req, res) => {
     (async () => {
         try {
             let dbTech = req.body.db_technology
@@ -55,5 +67,5 @@ routerCreate.post('/db_create_entry', (req, res) => {
 
     })()
 })
-
-export default routerCreate
+module.exports = routerCreate
+// export default routerCreate
