@@ -3,7 +3,6 @@ import routerCreate from './routes/learndb_entry_create.js'
 import routerSearch from './routes/learndb_search.js'
 import routerDelete from './routes/learndb_delete.js'
 import routerUpdate from './routes/learndb_update.js'
-import routerRegister from './routes/learndb_register.js'
 import express from 'express'
 
 import path from 'path'
