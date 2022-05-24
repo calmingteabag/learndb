@@ -26,7 +26,6 @@ app.use(routerCreate)
 app.use(routerSearch)
 app.use(routerDelete)
 app.use(routerUpdate)
-app.use(routerRegister)
 
 app.listen(port, () => {
     console.log(`App running on port: ${port}`)
