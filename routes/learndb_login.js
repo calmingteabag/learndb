@@ -3,6 +3,7 @@
 // import { __dirname, newRouter } from './learndb_path_router.js'
 
 const path = require('path')
+const passport = require('../auth/passport.js')
 const newRouter = require('./learndb_path_router.js')
 const routerLogin = newRouter
 
