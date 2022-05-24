@@ -1,6 +1,6 @@
 import path from 'path'
 import { learndbModel } from '../db/db_model.js'
-import { __dirname, newRouter } from './learndb_path_router.js'
+import { newRouter } from './learndb_path_router.js'
 
 const routerCreate = newRouter
 learndbModel.sync()
