@@ -1,6 +1,3 @@
-// import path from 'path'
-// import { __dirname, newRouter } from './learndb_path_router.js'
-
 const path = require('path')
 const newRouter = require('./learndb_path_router.js')
 
@@ -34,5 +31,5 @@ routerRegister.post('/db_register', async (req, res) => {
         res.render(path.join(__dirname, '../static/html/index'), { msg: "error creating user" })
     }
 })
+
 module.exports = routerRegister
-// export default routerRegister

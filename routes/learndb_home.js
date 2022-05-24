@@ -1,6 +1,3 @@
-// import path from 'path'
-// import { __dirname, newRouter } from './learndb_path_router.js'
-
 const path = require('path')
 const newRouter = require('./learndb_path_router.js')
 const routerHome = newRouter
@@ -14,4 +11,3 @@ routerHome.get('/', (req, res) => {
     }
 })
 module.exports = routerHome
-// export default routerHome

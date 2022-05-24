@@ -1,15 +1,3 @@
-// import routerHome from './routes/learndb_home.js'
-// import routerCreate from './routes/learndb_entry_create.js'
-// import routerSearch from './routes/learndb_search.js'
-// import routerDelete from './routes/learndb_delete.js'
-// import routerUpdate from './routes/learndb_update.js'
-// import routerRegister from './routes/learndb_register.js'
-// import routerLogin from './routes/learndb_login.js'
-// import express from 'express'
-// import path from 'path'
-// import { Router } from 'express'
-// import { fileURLToPath } from 'url'
-
 const routerHome = require('./routes/learndb_home.js')
 const routerCreate = require('./routes/learndb_entry_create.js')
 const routerSearch = require('./routes/learndb_search.js')
@@ -17,6 +5,7 @@ const routerDelete = require('./routes/learndb_delete.js')
 const routerUpdate = require('./routes/learndb_update.js')
 const routerRegister = require('./routes/learndb_register.js')
 const routerLogin = require('./routes/learndb_login.js')
+
 const express = require('express')
 const path = require('path')
 const Router = require('express')
@@ -50,7 +39,6 @@ app.use(routerDelete)
 app.use(routerUpdate)
 app.use(routerRegister)
 app.use(routerLogin)
-
 
 app.listen(port, () => {
     console.log(`App running on port: ${port}`)

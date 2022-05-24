@@ -1,7 +1,3 @@
-// import path from 'path'
-// import routerHome from './learndb_home.js'
-// import { __dirname, newRouter } from './learndb_path_router.js'
-
 const path = require('path')
 const passport = require('../auth/passport.js')
 const newRouter = require('./learndb_path_router.js')
@@ -16,5 +12,6 @@ routerLogin.post('/login',
     (req, res) => {
         res.render(path.join(__dirname, '../static/html/index'), { status: req.flash('message') })
     });
+
 module.exports = routerLogin
-// export default routerHome
+

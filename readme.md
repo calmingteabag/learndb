@@ -8,5 +8,9 @@ Coisas que aprendi com esse projeto:
 
 - O modelo de renderização segue muito o padrão django, de renderizar os htmls. É bem simples mas o modelo que se usa mais, pelo pouco que conheço, é servir uma html no backend, com um front pegando as informações do back e modificando o html conforme o usuario navega. Ainda desconheço os frameworks de front (react, angular), então a parte prática ainda é uma caixa preta, mas em um futuro proximo pretendo aprender um deles.
 
-- Imports estão uma bagunça porque algumas partes do passport precisam usar 'require' e não aceitam 'import {x} from y'
+- Checar se todos os modulos aceitam ECMA imports, porque tive que reescrever o projeto inteiro em 'require' por conta disso.
+
+- O deploy pode dar bastante dor de cabeça, principalmente por conta dos detalhes. Importante levar esse tempo em conta tambem.
+
+- Montar o basico do MVC foi bem tranquilo, pois eu já conhecia ele vindo do django. A autenticação por outro lado, com as sessions e tudo mais foi um caos porque, mais uma vez, o django fazia tudo por mim. Então tive que aprender a usar passport (e decifrar seu terrivel guia oficial).
 

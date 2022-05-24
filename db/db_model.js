@@ -1,5 +1,3 @@
-// import { DataTypes } from 'sequelize'
-// import { sequelize } from './db_conn.js'
 const { DataTypes } = require('sequelize')
 const sequelize = require('./db_conn.js')
 
@@ -21,4 +19,3 @@ const learndbModel = sequelize.define('learning_concepts', {
 })
 
 module.exports = learndbModel
-// export { learndbModel }

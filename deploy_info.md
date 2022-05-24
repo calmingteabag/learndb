@@ -1,4 +1,4 @@
-# Como deploy express app no heroku
+# Como deploy express no heroku
 
 Não é preciso configurar muito, só prestar atenção em alguns detalhes
 
@@ -17,8 +17,8 @@ corta a parte que vc quer com o path.dirname.
 
 IMPORTANTE
 
-se o projeto estiver usando require, não é necessario usar import.meta.url e simular o __dirname
-o __dirname já é embutido como padrão no node sem precisar disso
+se o projeto estiver usando require, não é necessario usar import.meta.url e simular o __dirname.
+O __dirname já é embutido como padrão no node sem precisar disso.
 
 ## Ainda sobre paths
 
