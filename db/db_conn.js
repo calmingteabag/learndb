@@ -18,4 +18,5 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     }
 })
 
-export { sequelize, dbAddress, dbDialect, dbDatabaseName }
+// export { sequelize, dbAddress, dbDialect, dbDatabaseName }
+export { sequelize }
