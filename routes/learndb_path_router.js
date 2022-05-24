@@ -9,4 +9,4 @@ const newRouter = Router()
 newRouter.use(express.static(path.join(__dirname, '../static')))
 newRouter.use(express.urlencoded({ extended: true }))
 
-export { newRouter }
+export { __dirname, newRouter }
