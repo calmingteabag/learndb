@@ -23,15 +23,23 @@ passport.use(new LocalStrategy({
         const getUser = await userModel.findOne({
             where: {
                 email: email,
-                password: password
             }
         })
+
         if (!getUser) {
-            done(null, false, req.flash('errmsg', 'user not found'))
-        } else if (password != getUser.password) {
-            done(null, false, req.flash('errmsg', 'pass incorrect'))
+            done(null, false, req.flash('message', 'user not found'))
         } else {
-            done(null, getUser, req.flash('message', 'success login'))
+            bcrypt.compare(password, getUser.getDataValue('password'), (err, result) => {
+                console.log(result)
+                if (err) {
+                    done(err, false, req.flash('message', err))
+                } else if (result == false) {
+                    done(null, false, req.flash('message', 'password does not match'))
+                }
+
+                done(null, getUser, req.flash('message', 'success login'))
+
+            })
         }
     }
 ))
