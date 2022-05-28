@@ -1,5 +1,5 @@
 const path = require('path')
-const newRouter = require('./learndb_path_router.js')
+const newRouter = require('../routes/learndb_path_router.js')
 const routerRegister = newRouter
 const userModel = require('../db/db_users.js')
 const bcrypt = require('bcrypt')

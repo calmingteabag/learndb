@@ -9,7 +9,7 @@ const authCheck = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next()
     }
-    res.render(path.join(__dirname, '../static/html/login'), { status: "you didn't have permission to access page so we redirect you here" })
+    res.redirect('/google_login')
 }
 
 routerCreate.get('/db_create_entry', authCheck, (req, res) => {

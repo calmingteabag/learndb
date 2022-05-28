@@ -10,8 +10,8 @@ Coisas que aprendi com esse projeto:
 
 - Checar se todos os modulos aceitam ECMA imports, porque tive que reescrever o projeto inteiro em 'require' por conta disso.
 
-- O deploy pode dar bastante dor de cabeça, principalmente por conta dos detalhes. Importante levar esse tempo em conta tambem.
+- O deploy pode dar bastante dor de cabeça. BASTANTE dor de cabeça, principalmente por conta dos detalhes. Importante levar esse tempo em conta tambem.
 
-- Montar o basico do MVC foi bem tranquilo, pois eu já conhecia ele vindo do django. A autenticação por outro lado, com as sessions e tudo mais foi um caos porque, mais uma vez, o django fazia tudo por mim. Então tive que aprender a usar passport (e decifrar seu terrivel guia oficial).
+- Montar o basico do MVC foi bem tranquilo, pois eu já conhecia ele vindo do django. A autenticação, por outro lado, com as sessions e tudo mais foi um caos porque a documentação do Passport é terrivel e achar qualquer tipo de informação requer basicamente olhar posts e mais posts no stackoverflow e em outros lugares. No fim das contas não é -tão- dificil, apenas a documentação que é mais incompleta que andar de carro sem motor.
 
-- Google > Autenticação própria. Pelo menos com passport.
+- É dificil estimar o tempo para terminar um projeto como esse quando não se conhece todas as ferramentas. Não dá pra quantificar em quantos dias/horas se aprende algo, principalmente quando é o primeiro contato, como foi com Express, Sequelize e Passport.
