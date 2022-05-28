@@ -1,27 +1,18 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('./db_conn.js')
 
-const userModel = sequelize.define('registered users', {
-    username: {
+const googleModel = sequelize.define('google users', {
+    google_id: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    name: {
         type: DataTypes.STRING,
         allowNull: false
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false
     },
-    password: {
-        type: DataTypes.STRING,
-        get() {
-            return () => this.getDataValue('password')
-        }
-    },
-    salt: {
-        type: DataTypes.STRING,
-        get() {
-            return () => this.getDataValue('salt')
-        }
-    }
 })
 
-module.exports = userModel
+module.exports = googleModel

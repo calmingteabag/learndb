@@ -1,47 +1,54 @@
 const passport = require('passport')
-const userModel = require('../db/db_users.js')
-const LocalStrategy = require('passport-local').Strategy
-const bcrypt = require('bcrypt')
-const { hash } = require('bcrypt')
+const googleModel = require('../db/db_users.js')
 
-passport.serializeUser((user, done) => {
-    done(null, user.id)
-})
+const GoogleStrategy = require('passport-google-oauth20')
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
 
-passport.deserializeUser((id, done) => {
-    userModel.findByPk(id, (err, user) => {
-        done(err, user)
-    })
-})
-
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password',
-    passReqToCallback: true
+passport.use(new GoogleStrategy({
+    clientID: GOOGLE_CLIENT_ID,
+    clientSecret: GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:8000/google_auth"
 },
-    async (req, email, password, done) => {
-        const getUser = await userModel.findOne({
+    async (accessToken, refreshToken, profile, done) => {
+
+        const profileID = profile.id
+        const profileIDString = profileID.toString()
+
+        console.log(typeof profileID)
+        console.log(typeof profileIDString)
+
+
+        const findUser = await googleModel.findOne({
             where: {
-                email: email,
+                google_id: profileIDString
             }
         })
 
-        if (!getUser) {
-            done(null, false, req.flash('message', 'user not found'))
-        } else {
-            bcrypt.compare(password, getUser.getDataValue('password'), (err, result) => {
-                console.log(result)
-                if (err) {
-                    done(err, false, req.flash('message', err))
-                } else if (result == false) {
-                    done(null, false, req.flash('message', 'password does not match'))
-                }
-
-                done(null, getUser, req.flash('message', 'success login'))
-
+        if (!findUser) {
+            const putUser = await googleModel.create({
+                google_id: profileIDString,
+                name: profile.displayName,
+                email: profile.emails[0].value
             })
+            putUser.save()
+        } else {
+            done(null, findUser)
         }
     }
-))
+));
+
+passport.serializeUser((user, done) => {
+    done(null, user.google_id)
+})
+
+passport.deserializeUser((id, done) => {
+    let user = googleModel.findOne({
+        where: {
+            google_id: id
+        }
+    })
+    done(null, user)
+})
 
 module.exports = passport

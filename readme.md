@@ -14,3 +14,4 @@ Coisas que aprendi com esse projeto:
 
 - Montar o basico do MVC foi bem tranquilo, pois eu já conhecia ele vindo do django. A autenticação por outro lado, com as sessions e tudo mais foi um caos porque, mais uma vez, o django fazia tudo por mim. Então tive que aprender a usar passport (e decifrar seu terrivel guia oficial).
 
+- Google > Autenticação própria. Pelo menos com passport.
