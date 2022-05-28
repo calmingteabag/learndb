@@ -6,7 +6,7 @@ const routerLogin = newRouter
 routerLogin.get('/google_auth',
     passport.authenticate('google', { failureRedirect: '/login', failureMessage: true }),
     function (req, res) {
-        res.redirect('/');
+        res.render(path.join(__dirname, '../static/html/index'), { status: "Successful login" })
     });
 
 routerLogin.get('/google_login', passport.authenticate('google', {

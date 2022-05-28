@@ -1,6 +1,5 @@
 const passport = require('passport')
 const googleModel = require('../db/db_users.js')
-
 const GoogleStrategy = require('passport-google-oauth20')
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
@@ -11,13 +10,8 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:8000/google_auth"
 },
     async (accessToken, refreshToken, profile, done) => {
-
         const profileID = profile.id
         const profileIDString = profileID.toString()
-
-        console.log(typeof profileID)
-        console.log(typeof profileIDString)
-
 
         const findUser = await googleModel.findOne({
             where: {

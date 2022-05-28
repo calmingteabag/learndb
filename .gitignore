@@ -1,7 +1,8 @@
 /node_modules
 /.vscode
 /static/img
-testrender.ejs
 /static/js_front
 .env
 /tests
+/legacy_login
+dev_notes.md
