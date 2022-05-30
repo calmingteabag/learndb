@@ -5,15 +5,24 @@ const Op = require('sequelize')
 
 const routerSearch = newRouter
 
-learndbModel.sync()
+const authCheck = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+    res.redirect('/google_login')
+}
 
-routerSearch.get('/db_view_all', (req, res) => {
+routerSearch.get('/db_view_all', authCheck, (req, res) => {
     try {
         (async () => {
-            const learndbFindAll = await learndbModel.findAll()
-            // findAll method needs to be changed to find everything from 
-            // logged user instead. this means changing db to include som kind of
-            // 'user' field.
+            await learndbModel.sync()
+
+            const learndbFindAll = await learndbModel.findAll({
+                where: {
+                    userId: req.session.passport.user
+
+                }
+            })
             res.render(path.join(__dirname, '../static/html/results'), { dbResults: JSON.parse(JSON.stringify(learndbFindAll)), status: "All" })
         })()
     } catch (err) {
@@ -21,9 +30,10 @@ routerSearch.get('/db_view_all', (req, res) => {
     }
 })
 
-routerSearch.post('/db_search', (req, res) => {
+routerSearch.post('/db_search', authCheck, (req, res) => {
     (async () => {
         try {
+            await learndbModel.sync()
             let userSearch = req.body.search_items
             let userSearchArr = userSearch.split(' ')
             let userSearchResult = await learndbModel.findAll({

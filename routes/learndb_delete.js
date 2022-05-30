@@ -3,7 +3,7 @@ const learndbModel = require('../db/db_model.js')
 const newRouter = require('./learndb_path_router.js')
 
 const routerDelete = newRouter
-learndbModel.sync()
+// learndbModel.sync()
 
 const authCheck = (req, res, next) => {
     if (req.isAuthenticated()) {
@@ -14,6 +14,7 @@ const authCheck = (req, res, next) => {
 
 routerDelete.post('/db_delete_entry', authCheck, (req, res) => {
     (async () => {
+        await learndbModel.sync()
         let deleteId = req.body.db_delete
         let deleteColumn = await learndbModel.findByPk(deleteId)
 

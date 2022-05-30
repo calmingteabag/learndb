@@ -2,9 +2,11 @@ const { DataTypes } = require('sequelize')
 const sequelize = require('./db_conn.js')
 
 const learndbModel = sequelize.define('learning_concepts', {
+    userId: {
+        type: DataTypes.STRING,
+    },
     technology: {
         type: DataTypes.STRING,
-        allowNull: false
     },
     subject: {
         type: DataTypes.STRING,

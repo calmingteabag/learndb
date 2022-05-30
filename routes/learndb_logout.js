@@ -3,11 +3,16 @@ const routerSearch = require('./learndb_search.js')
 const routerLogout = newRouter
 
 routerLogout.post('/logout', (req, res) => {
-    if (!req.isAuthenticated()) {
-        res.render(path.join(__dirname, '../static/html/index'), { status: "Your are not logged in" })
+    try {
+        if (!req.isAuthenticated()) {
+            res.render(path.join(__dirname, '../static/html/index'), { status: "Your are not logged in" })
+        }
+        req.logout()
+        res.render(path.join(__dirname, '../static/html/index'), { status: "Successful logout" })
+    } catch (err) {
+        console.log(err)
     }
-    req.logout()
-    res.render(path.join(__dirname, '../static/html/index'), { status: "Successful logout" })
+
 
 })
 

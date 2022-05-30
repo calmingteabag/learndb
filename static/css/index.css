@@ -54,6 +54,7 @@ div.app_footer {
 Footer styling
 */
 div.app_footer_item {
+    border: 1px solid red;
     width: 15vw;
     height: 5vw;
     font-size: 2vh;

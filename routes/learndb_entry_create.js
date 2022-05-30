@@ -3,7 +3,7 @@ const learndbModel = require('../db/db_model.js')
 const newRouter = require('./learndb_path_router.js')
 
 const routerCreate = newRouter
-learndbModel.sync()
+// learndbModel.sync()
 
 const authCheck = (req, res, next) => {
     if (req.isAuthenticated()) {
@@ -12,8 +12,10 @@ const authCheck = (req, res, next) => {
     res.redirect('/google_login')
 }
 
-routerCreate.get('/db_create_entry', authCheck, (req, res) => {
+routerCreate.get('/db_create_entry', authCheck, async (req, res) => {
     try {
+        console.log(req.session.passport.user)
+        console.log(typeof req.session.passport.user)
         res.render(path.join(__dirname, '../static/html/create'), { status: "" })
     } catch (err) {
         console.log(err)
@@ -23,6 +25,7 @@ routerCreate.get('/db_create_entry', authCheck, (req, res) => {
 routerCreate.post('/db_create_entry', authCheck, (req, res) => {
     (async () => {
         try {
+            learndbModel.sync()
             let dbTech = req.body.db_technology
             let dbSubject = req.body.db_subject
             let dbTags = req.body.db_tags
@@ -39,6 +42,7 @@ routerCreate.post('/db_create_entry', authCheck, (req, res) => {
                         subject: dbSubject
                     },
                     defaults: {
+                        userId: req.session.passport.user,
                         technology: dbTech,
                         subject: dbSubject,
                         tags: dbTags,
