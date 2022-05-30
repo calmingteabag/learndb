@@ -9,7 +9,7 @@ async function syncDb() {
     await googleModel.sync()
 }
 syncDb()
-
+console.log(path.join(__dirname, '/google_auth'))
 passport.use(new GoogleStrategy({
 
 
