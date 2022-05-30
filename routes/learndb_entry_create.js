@@ -1,9 +1,7 @@
 const path = require('path')
 const learndbModel = require('../db/db_model.js')
 const newRouter = require('./learndb_path_router.js')
-
 const routerCreate = newRouter
-// learndbModel.sync()
 
 const authCheck = (req, res, next) => {
     if (req.isAuthenticated()) {
@@ -14,8 +12,6 @@ const authCheck = (req, res, next) => {
 
 routerCreate.get('/db_create_entry', authCheck, async (req, res) => {
     try {
-        console.log(req.session.passport.user)
-        console.log(typeof req.session.passport.user)
         res.render(path.join(__dirname, '../static/html/create'), { status: "" })
     } catch (err) {
         console.log(err)
@@ -63,7 +59,6 @@ routerCreate.post('/db_create_entry', authCheck, (req, res) => {
         } catch (err) {
             console.log(err)
         }
-
     })()
 })
 module.exports = routerCreate

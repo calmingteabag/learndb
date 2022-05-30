@@ -3,7 +3,6 @@ const learndbModel = require('../db/db_model.js')
 const newRouter = require('./learndb_path_router.js')
 
 const routerDelete = newRouter
-// learndbModel.sync()
 
 const authCheck = (req, res, next) => {
     if (req.isAuthenticated()) {

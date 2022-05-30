@@ -1,8 +1,9 @@
+const path = require('path')
 const newRouter = require('./learndb_path_router.js')
 const routerSearch = require('./learndb_search.js')
 const routerLogout = newRouter
 
-routerLogout.post('/logout', (req, res) => {
+routerLogout.get('/logout', (req, res) => {
     try {
         if (!req.isAuthenticated()) {
             res.render(path.join(__dirname, '../static/html/index'), { status: "Your are not logged in" })
@@ -12,8 +13,6 @@ routerLogout.post('/logout', (req, res) => {
     } catch (err) {
         console.log(err)
     }
-
-
 })
 
 module.exports = routerLogout
