@@ -2,7 +2,7 @@
   "name": "learndb",
   "version": "1.0.0",
   "description": "App to keep records of learned stuff!",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest",
     "start": "node app.js",
