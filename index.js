@@ -10,7 +10,8 @@ const routerLogin = require('./routes/learndb_login.js')
 const routerLogout = require('./routes/learndb_logout.js')
 // Express / Passport 
 const express = require('express')
-const session = require('express-session')
+// const session = require('express-session')
+const session = require('cookie-session')
 const passport = require('./auth/passport.js')
 const app = express()
 const port = process.env.PORT || 8000

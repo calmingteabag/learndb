@@ -66,3 +66,27 @@ Mude o caminho local para usar 'process.env.DATABASE_URL'
 Node não aceita es6 e require ao mesmo tempo
 tenha em mente que se um modulo precisar de require, o projeto inteiro tem que ser
 mudado para require
+
+## express-session
+
+Se vc estiver usando
+
+```
+const session = require('express-session')
+
+app.use(session({
+    secret: crypto.randomBytes(10).toString('hex'),
+    resave: false,
+    saveUninitialized: false,
+}))
+``` 
+ou algo assim, vc está salvando a session de autenticação no servidor, o que vai retornar erro.
+que vc quer é usar os cookies no cliente. Então vc
+
+npm i --save cookie-session
+
+e muda o require pra
+
+```
+const session = require('cookie-session')
+```
