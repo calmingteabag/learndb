@@ -1,8 +1,9 @@
+const path = require('path')
+const url = require('url')
 const passport = require('passport')
 const googleModel = require('../db/db_users.js')
 const GoogleStrategy = require('passport-google-oauth20')
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
+
 
 async function syncDb() {
     await googleModel.sync()
@@ -10,9 +11,12 @@ async function syncDb() {
 syncDb()
 
 passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:8000/google_auth"
+
+
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    // callbackURL: "http://localhost:8000/google_auth",
+    callbackURL: path.join(__dirname, '/google_auth')
 },
     async (accessToken, refreshToken, profile, done) => {
         await googleModel.sync()
