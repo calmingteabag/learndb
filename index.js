@@ -1,6 +1,5 @@
 // System
 const path = require('path')
-const dotenv = require('dotenv').config({ path: './.env' });
 // Routers
 const routerHome = require('./routes/learndb_home.js')
 const routerCreate = require('./routes/learndb_entry_create.js')
