@@ -15,4 +15,6 @@ const googleModel = sequelize.define('google users', {
     },
 })
 
+googleModel.sync()
+
 module.exports = googleModel

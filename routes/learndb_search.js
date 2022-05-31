@@ -38,9 +38,8 @@ routerSearch.post('/db_search', authCheck, (req, res) => {
             let userSearchArr = userSearch.split(' ')
             let userSearchResult = await learndbModel.findAll({
                 where: {
-                    technology: {
-                        [Op.in]: userSearchArr
-                    }
+                    technology: userSearchArr
+
                 }
             })
 
